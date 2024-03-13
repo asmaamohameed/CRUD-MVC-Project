@@ -1,0 +1,41 @@
+﻿@model IdentityRole
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit Role</h1>
+
+<br />
+<br />
+
+
+<div class="row">
+    <div class="col-6">
+        <form asp-action="Update" asp-controller="Roles">
+            <input hidden asp-for="Id" />
+
+            <div class="form-group">
+                <label class="col-form-label" asp-for="@Model.Name"></label>
+                <input asp-for="@Model.Name" class="form-control" />
+                <span asp-validation-for="@Model.Name" class="text-danger"></span>
+            </div>
+
+            <div class="my-3">
+                <a class="btn btn-info" asp-action="AddOrRemoveUsers" asp-controller="Roles" asp-route-RoleId="@Model.Id">AddOrRemoveUsers</a>
+            </div>
+
+            <input type="submit" value="Save" class="btn btn-primary" /> 
+            <a asp-action="Index" class="btn btn-light">Back To List</a>
+        </form>
+
+    </div>
+</div>
+
+
+
+@* @section ValidationScriptSection {
+
+    <partial name="_ValidationScriptsPartial" />
+}
+ *@
